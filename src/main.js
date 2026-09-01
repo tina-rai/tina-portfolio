@@ -19,11 +19,11 @@ let pianoDebounceTimer = null;
 let isMusicFaded = false;
 const MUSIC_FADE_TIME = 500;
 const PIANO_TIMEOUT = 2000;
-const BACKGROUND_MUSIC_VOLUME = 1;
+const BACKGROUND_MUSIC_VOLUME = 0.25;
 const FADED_VOLUME = 0;
 
 const backgroundMusic = new Howl({
-    src: ["/audio/music/cosmic_candy.ogg"],
+    src: ["/audio/music/moanachimes.aac"],
     loop: true,
     volume: 1,
 });
@@ -328,7 +328,7 @@ manager.onLoad = function() {
         loadingScreenButton.style.background = "#ead7ef";
         loadingScreenButton.style.color = "#6e5e9c";
         loadingScreenButton.style.boxShadow = "none";
-        loadingScreenButton.textContent = "~ Welcome to Tina's Room ~";
+        loadingScreenButton.textContent = " Welcome to Tina's Room ";
         loadingScreen.style.background = "#ead7ef";
         isDisabled = true;
 
@@ -497,14 +497,6 @@ function playIntroAnimation() {
         )
         .to(
             youtube.scale, {
-                x: 1,
-                y: 1,
-                z: 1,
-            },
-            "-=0.6"
-        )
-        .to(
-            twitter.scale, {
                 x: 1,
                 y: 1,
                 z: 1,
@@ -1313,6 +1305,8 @@ loader.load("/models/Room_Portfolio.glb", (glb) => {
             } else if (child.name.includes("Twitter")) {
                 twitter = child;
                 child.scale.set(0, 0, 0);
+                twitter.visible = false;
+
             } else if (child.name.includes("Name_Letter_1")) {
                 letter1 = child;
                 child.scale.set(0, 0, 0);
@@ -1478,9 +1472,8 @@ let currentIntersects = [];
 let currentHoveredObject = null;
 
 const socialLinks = {
-    GitHub: "https://github.com/andrewwoan/sooahkimsfolio",
-    YouTube: "https://youtu.be/AB6sulUMRGE",
-    Twitter: "https://www.twitter.com/",
+    GitHub: "https://github.com/tina-rai",
+    YouTube: "https://youtu.be/WwQ-NH1rRT4?si=YjPoDBpZilROTtsM",
 };
 
 const raycaster = new THREE.Raycaster();
@@ -2054,3 +2047,45 @@ const render = (timestamp) => {
 };
 
 render();
+const campusHubSlider = document.querySelector(
+    '[data-project="campushub"]'
+  );
+  
+  if (campusHubSlider) {
+    const image = campusHubSlider.querySelector(".slider-image");
+    const prevButton = campusHubSlider.querySelector(".slider-prev");
+    const nextButton = campusHubSlider.querySelector(".slider-next");
+    const dots = campusHubSlider.querySelectorAll(".slider-dot");
+  
+    const images = [
+      "/images/campushub.png",
+      "/images/campushub-2.png",
+      "/images/campushub-3.png",
+    ];
+  
+    let currentIndex = 0;
+  
+    function showImage(index) {
+      currentIndex = (index + images.length) % images.length;
+  
+      image.src = images[currentIndex];
+  
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    }
+  
+    prevButton.addEventListener("click", () => {
+      showImage(currentIndex - 1);
+    });
+  
+    nextButton.addEventListener("click", () => {
+      showImage(currentIndex + 1);
+    });
+  
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showImage(index);
+      });
+    });
+  }
