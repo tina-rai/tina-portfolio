@@ -1163,6 +1163,7 @@ let frame1, frame2, frame3;
 const useOriginalMeshObjects = ["Bulb", "Cactus", "Kirby"];
 
 const objectsNeedingHitboxes = [];
+const raycasterObjects = [];
 
 const objectsWithIntroAnimations = [
     "Hanging_Plank_1",
@@ -1490,7 +1491,6 @@ loader.load(`${BASE_URL}models/Room_Portfolio.glb`, (glb) => {
 
 /**  -------------------------- Raycaster setup -------------------------- */
 
-const raycasterObjects = [];
 let currentIntersects = [];
 let currentHoveredObject = null;
 
