@@ -1,12 +1,10 @@
 # Tina's Room Portfolio 
 
-**[Live Site](YOUR_LIVE_SITE_URL)**
+**[Live Site](https://tina-rai.github.io/tina-portfolio/)**
 
 This repository contains the source code for my personal 3D room portfolio.
 
 The portfolio is an interactive virtual room built with **JavaScript, Three.js, SCSS, and Vite**, with interactive objects, animations, project showcases, background music, and different room themes.
-
-![Portfolio Screenshot](public/media/og-image.webp?raw=true "Portfolio Screenshot")
 
 ## ✨ Features
 

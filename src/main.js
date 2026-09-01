@@ -25,8 +25,8 @@ const BACKGROUND_MUSIC_VOLUME = 0.25;
 const FADED_VOLUME = 0;
 
 const backgroundMusic = new Howl({
-    src: ["/audio/music/moanachimes.aac"],
-    loop: true,
+    src: [`${BASE_URL}audio/music/moanachimes.aac`],
+        loop: true,
     volume: 1,
 });
 
@@ -93,8 +93,8 @@ Object.values(pianoKeyMap).forEach((soundKey) => {
 // Button
 const buttonSounds = {
     click: new Howl({
-        src: ["/audio/sfx/click/bubble.ogg"],
-        preload: true,
+        src: [`${BASE_URL}audio/sfx/click/bubble.ogg`],
+                preload: true,
         volume: 0.5,
     }),
 };
@@ -982,16 +982,18 @@ const textureMap = {
         night: `${BASE_URL}textures/room/night/first_texture_set_night.webp`,
     },
     Second: {
-        day: "/textures/room/day/second_texture_set_day.webp",
-        night: "/textures/room/night/second_texture_set_night.webp",
+        day: `${BASE_URL}textures/room/day/second_texture_set_day.webp`,
+night: `${BASE_URL}textures/room/night/second_texture_set_night.webp`,
+
     },
     Third: {
-        day: "/textures/room/day/third_texture_set_day.webp",
-        night: "/textures/room/night/third_texture_set_night.webp",
+        day: `${BASE_URL}textures/room/day/third_texture_set_day.webp`,
+night: `${BASE_URL}textures/room/night/third_texture_set_night.webp`,
+
     },
     Fourth: {
-        day: "/textures/room/day/fourth_texture_set_day.webp",
-        night: "/textures/room/night/fourth_texture_set_night.webp",
+        day: `${BASE_URL}textures/room/day/fourth_texture_set_day.webp`,
+night: `${BASE_URL}textures/room/night/fourth_texture_set_night.webp`,
     },
 };
 
@@ -1098,18 +1100,7 @@ const smoke = new THREE.Mesh(smokeGeometry, smokeMaterial);
 smoke.position.y = 1.83;
 scene.add(smoke);
 
-/*const videoElement = document.createElement("video");
-videoElement.src = `${BASE_URL}textures/video/Screen.mp4`;
-videoElement.loop = true;
-videoElement.muted = true;
-videoElement.playsInline = true;
-videoElement.autoplay = true;
-videoElement.play();
-
-const videoTexture = new THREE.VideoTexture(videoElement);
-videoTexture.colorSpace = THREE.SRGBColorSpace;
-videoTexture.flipY = false; */
-
+const videoTexture = null;
 /**  -------------------------- Model and Mesh Setup -------------------------- */
 
 // LOL DO NOT DO THIS USE A FUNCTION TO AUTOMATE THIS PROCESS HAHAHAAHAHAHAHAHAHA
@@ -1436,12 +1427,13 @@ loader.load(`${BASE_URL}models/Room_Portfolio.glb`, (glb) => {
                 child.material = glassMaterial;
             } else if (child.name.includes("Bubble")) {
                 child.material = whiteMaterial;
-            } else if (child.name.includes("Screen")) {
+            }  else if (child.name.includes("Screen")) {
                 child.material = new THREE.MeshBasicMaterial({
-                    map: videoTexture,
+                    color: 0x222222,
                     transparent: true,
                     opacity: 0.9,
                 });
+            
             } else {
                 Object.keys(textureMap).forEach((key) => {
                     if (child.name.includes(key)) {
@@ -1481,7 +1473,9 @@ loader.load(`${BASE_URL}models/Room_Portfolio.glb`, (glb) => {
                 }
             }
         }
+        });
     });
+
 
     if (coffeePosition) {
         smoke.position.set(
@@ -1492,7 +1486,7 @@ loader.load(`${BASE_URL}models/Room_Portfolio.glb`, (glb) => {
     }
 
     scene.add(glb.scene);
-});
+
 
 /**  -------------------------- Raycaster setup -------------------------- */
 
@@ -2087,8 +2081,8 @@ const campusHubSlider = document.querySelector(
     const dots = campusHubSlider.querySelectorAll(".slider-dot");
   
     const images = [
-        "/images/campushub.png",
-        "/images/admindashboard.png",
+       `${BASE_URL}images/campushub.png`,
+`${BASE_URL}images/admindashboard.png`,
     ];
   
     let currentIndex = 0;
