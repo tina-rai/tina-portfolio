@@ -1,3 +1,5 @@
+const BASE_URL = import.meta.env.BASE_URL;
+
 import gsap from "gsap";
 
 import { Howl } from "howler";
@@ -965,7 +967,7 @@ function playIntroAnimation() {
 const textureLoader = new THREE.TextureLoader();
 
 const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath("/draco/");
+dracoLoader.setDecoderPath(`${BASE_URL}draco/`);
 
 const loader = new GLTFLoader(manager);
 loader.setDRACOLoader(dracoLoader);
@@ -976,8 +978,8 @@ const environmentMap = new THREE.CubeTextureLoader()
 
 const textureMap = {
     First: {
-        day: "/textures/room/day/first_texture_set_day.webp",
-        night: "/textures/room/night/first_texture_set_night.webp",
+        day: `${BASE_URL}textures/room/day/first_texture_set_day.webp`,
+        night: `${BASE_URL}textures/room/night/first_texture_set_night.webp`,
     },
     Second: {
         day: "/textures/room/day/second_texture_set_day.webp",
@@ -1076,7 +1078,7 @@ const smokeGeometry = new THREE.PlaneGeometry(1, 1, 16, 64);
 smokeGeometry.translate(0, 0.5, 0);
 smokeGeometry.scale(0.33, 1, 0.33);
 
-const perlinTexture = textureLoader.load("/shaders/perlin.png");
+const perlinTexture = textureLoader.load(`${BASE_URL}shaders/perlin.png`);
 perlinTexture.wrapS = THREE.RepeatWrapping;
 perlinTexture.wrapT = THREE.RepeatWrapping;
 
@@ -1096,8 +1098,8 @@ const smoke = new THREE.Mesh(smokeGeometry, smokeMaterial);
 smoke.position.y = 1.83;
 scene.add(smoke);
 
-const videoElement = document.createElement("video");
-videoElement.src = "/textures/video/Screen.mp4";
+/*const videoElement = document.createElement("video");
+videoElement.src = `${BASE_URL}textures/video/Screen.mp4`;
 videoElement.loop = true;
 videoElement.muted = true;
 videoElement.playsInline = true;
@@ -1106,7 +1108,7 @@ videoElement.play();
 
 const videoTexture = new THREE.VideoTexture(videoElement);
 videoTexture.colorSpace = THREE.SRGBColorSpace;
-videoTexture.flipY = false;
+videoTexture.flipY = false; */
 
 /**  -------------------------- Model and Mesh Setup -------------------------- */
 
@@ -1239,8 +1241,8 @@ function hasIntroAnimation(objectName) {
     );
 }
 
-loader.load("/models/Room_Portfolio.glb", (glb) => {
-    glb.scene.traverse((child) => {
+loader.load(`${BASE_URL}models/Room_Portfolio.glb`, (glb) => {
+        glb.scene.traverse((child) => {
         console.log(
             child.name,
             "position:", child.position,
