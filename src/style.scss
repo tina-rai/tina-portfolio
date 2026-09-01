@@ -57,17 +57,22 @@ body {
 }
 
 // Text styles
+// Text styles
 h1,
-h2 {
-    font-family: "Motley Forces";
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Mabook", sans-serif;
 }
 
+body,
 p,
 ul,
 li {
-    font-family: "Shifty Notes";
+    font-family: "Poppins", sans-serif;
 }
-
 ul {
     list-style: none;
     padding-left: 2rem;
@@ -158,9 +163,68 @@ ul {
 }
 
 .about {
-    max-width: 800px;
-}
+    .modal-wrapper {
+        width: min(850px, 80vw);
+        min-height: 620px;
+    }
 
+    .modal-content {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+    .modal-content-wrapper {
+        height: auto;
+        overflow: visible;
+        padding-right: 0;
+    }
+
+    .about-card {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        width: 100%;
+        padding: 1rem 2rem 2rem;
+    }
+
+    .about-image {
+        flex: 0 0 210px;
+        width: 210px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 1rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .about-text {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .modal-paragraph-header {
+        margin: 0 0 0.75rem;
+    }
+
+    .modal-paragraph-text {
+        margin: 0 0 1.5rem;
+        line-height: 1.7;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+    }
+}
 .contact {
     max-width: 500px;
 }
@@ -260,12 +324,7 @@ ul {
     }
   }
 
-.about .modal-content {
-    height: 550px;
-    @include media.media("<=tablet") {
-        height: 500px;
-    }
-}
+
 
 .contact .modal-content {
     height: 170px;
@@ -939,3 +998,21 @@ ul {
       max-height: 70vh;
     }
   }
+  @media (max-width: 700px) {
+    .about {
+        .modal-wrapper {
+            width: 90vw;
+            min-height: auto;
+        }
+
+        .about-card {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-image {
+            width: 170px;
+            height: 220px;
+        }
+    }
+}

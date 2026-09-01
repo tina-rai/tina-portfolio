@@ -3,16 +3,10 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tina's Portfolio</title>
     <link rel="stylesheet" href="./src/style.scss" />
-    <link rel="icon" type="image/png" href="media/dark-favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/media/dark-faviconfavicon.svg" />
-    <link rel="shortcut icon" href="media/dark-favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="media/dark-favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="media/dark-favicon/site.webmanifest" />
-
+    <link rel="icon" type="image/png" href="/favicon.png"/>
     <meta name="language" content="English" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
@@ -116,50 +110,70 @@
           <div class="modal-content">
               <div class="modal-content-wrapper">
                 <h2 class="work-section-title">Projects</h2>
-                  <!-- CampusHub -->
-                  <div class="work-project">
-                      <div class="work-project-wrapper">
-  
+                
+                <!-- CampusHub -->
+                <div class="work-project">
+                    <div class="work-project-wrapper">
+                
                         <div class="work-image-wrapper project-slider" data-project="campushub">
-
-                            <button class="slider-button slider-prev" type="button" aria-label="Previous image">
+                
+                            <button
+                                class="slider-button slider-prev"
+                                type="button"
+                                aria-label="Previous image"
+                            >
                                 ‹
                             </button>
-                        
+                
                             <img
                                 class="work-base-image slider-image"
                                 src="/images/campushub.png"
                                 alt="CampusHub screenshot"
                             />
-                        
-                            <button class="slider-button slider-next" type="button" aria-label="Next image">
+                
+                            <button
+                                class="slider-button slider-next"
+                                type="button"
+                                aria-label="Next image"
+                            >
                                 ›
                             </button>
-                        
+                
                             <div class="slider-dots">
-                                <button class="slider-dot active" type="button" aria-label="Screenshot 1"></button>
-                                <button class="slider-dot" type="button" aria-label="Screenshot 2"></button>
-                                <button class="slider-dot" type="button" aria-label="Screenshot 3"></button>
+                                <button
+                                    class="slider-dot active"
+                                    type="button"
+                                    aria-label="CampusHub screenshot 1"
+                                ></button>
+                
+                                <button
+                                    class="slider-dot"
+                                    type="button"
+                                    aria-label="CampusHub screenshot 2"
+                                ></button>
                             </div>
-                        
+                
                         </div>
-  
-                          <div class="paragraph-section">
-                              <h2 class="modal-paragraph-header">
-                                  CampusHub
-                              </h2>
-  
-                              <p class="modal-paragraph-text">
-                                  A full-stack campus event management platform
-                                  with student and admin accounts, event management,
-                                  registrations, and role-based access.
-                              </p>
-  
-                              <p class="modal-paragraph-text sm-margin-top sm-font">
-                                  Skills: JavaScript, Node.js, Express.js, PostgreSQL, REST API, Authentication
-                              </p>
-  
-                              <div class="work-project-links">
+                
+                        <div class="paragraph-section">
+                
+                            <h2 class="modal-paragraph-header">
+                                CampusHub
+                            </h2>
+                
+                            <p class="modal-paragraph-text">
+                                A full-stack campus event management platform
+                                with student and admin accounts, event management,
+                                registrations, and role-based access.
+                            </p>
+                
+                            <p class="modal-paragraph-text sm-margin-top sm-font">
+                                Skills: JavaScript, Node.js, Express.js, PostgreSQL,
+                                REST API, Authentication
+                            </p>
+                
+                            <div class="work-project-links">
+                
                                 <a
                                     class="project-link live-demo"
                                     href="https://campus-hub-1-37y8.onrender.com/"
@@ -168,7 +182,7 @@
                                 >
                                     Live Demo ↗
                                 </a>
-                            
+                
                                 <a
                                     class="project-link github-link"
                                     href="https://github.com/tina-rai/campus-hub"
@@ -177,12 +191,14 @@
                                 >
                                     GitHub ↗
                                 </a>
+                
                             </div>
-                          </div>
-  
-                      </div>
-                  </div>
-  
+                
+                        </div>
+                
+                    </div>
+                </div>
+                                
   
                   <!-- Finance Dashboard -->
                   <div class="work-project">
@@ -399,85 +415,83 @@
           </div>
       </div>
   </div>
-    <div class="about modal">
-        <div class="modal-wrapper">
-            <h1 class="modal-title"> About Me </h1>
 
-            <div class="modal-content">
-                <div class="modal-content-wrapper">
-                    <div class="paragraph-section">
-                        <div class="image-wrapper">
-                            <img class="base-image" src="/images/profile_pic.webp" alt="" srcset="" />
-                        </div>
-                        <h2 class="modal-paragraph-header">
-                            Computer Science student & developer 💻
-
-                        </h2>
-                        <p class="modal-paragraph-text">
-                            Hi, I'm Tina Rai! I love learning new things, discovering new places, going for walks, and getting way too invested in movies, music, and pop culture.
-                            <!--<p class="modal-paragraph-text sm-margin-top">
-                                I'm currently learning JavaScript, Node.js, Express.js, and React while building projects to strengthen my full-stack development skills.-->
-                            <h2 class="modal-paragraph-header">What I'm Up To:</h2>
-
-                            <ul>
-                                <li class="list-text">
-                                    Currently learning <strong>JavaScript, Node.js, Express.js, and React</strong>.
-                                </li>
-
-                                <li class="list-text">
-                                    Building projects to strengthen my full-stack development skills.
-                                </li>
-
-                                <li class="list-text">
-                                    Constantly experimenting, learning new things, and working on new projects.
-                                </li>
-                            </ul>
-
-                            <!-- class="modal-paragraph-header-2">A Little More About Me:</h2>
-
-                            <ul>
-                                <li class="list-text-2">
-                                    Always curious about learning something new.
-                                </li>
-
-                                <li class="list-text-2">
-                                    Love exploring new places and going on walks.
-                                </li>
-
-                                <li class="list-text-2">
-                                    Movie, music, and pop culture enthusiast.
-                                </li>
-                            </ul>-->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="modal-exit-button">
-        <svg
-          width="98"
-          height="96"
-          viewBox="0 0 98 96"
-          class="exit-button-svg"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            width="115.92"
-            height="17.889"
-            rx="8.94448"
-            transform="matrix(-0.696845 0.717222 0.717222 0.696845 83.1709 0)"
-            fill="currentColor"
-          />
-          <rect
-            width="115.92"
-            height="17.889"
-            rx="8.94448"
-            transform="matrix(0.73406 0.679084 0.679084 -0.73406 0 13.1318)"
-            fill="currentColor"
-          />
-        </svg>
+  <div class="about modal">
+      <div class="modal-wrapper">
+          <h1 class="modal-title">About Me</h1>
+  
+          <div class="modal-content">
+              <div class="about-card">
+                  <div class="about-image">
+                      <img
+                          src="/images/profilep.jpeg"
+                          alt="Tina Rai"
+                      />
+                  </div>
+  
+                  <div class="about-text">
+                      <h2 class="modal-paragraph-header">
+                          Computer Science student & developer 💻
+                      </h2>
+  
+                      <p class="modal-paragraph-text">
+                          Hi, I'm Tina Rai! I love learning new things,
+                          discovering new places, going for walks, and getting
+                          way too invested in movies, music, and pop culture.
+                      </p>
+  
+                      <h2 class="modal-paragraph-header">
+                          What I'm Up To:
+                      </h2>
+  
+                      <ul>
+                          <li class="list-text">
+                              Currently learning
+                              <strong>JavaScript, Node.js, Express.js, and React</strong>.
+                          </li>
+  
+                          <li class="list-text">
+                              Building projects to strengthen my full-stack
+                              development skills.
+                          </li>
+  
+                          <li class="list-text">
+                              Constantly experimenting, learning new things,
+                              and working on new projects.
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <button class="modal-exit-button">
+          <svg
+              width="98"
+              height="96"
+              viewBox="0 0 98 96"
+              class="exit-button-svg"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+          >
+              <rect
+                  width="115.92"
+                  height="17.889"
+                  rx="8.94448"
+                  transform="matrix(-0.696845 0.717222 0.717222 0.696845 83.1709 0)"
+                  fill="currentColor"
+              />
+              <rect
+                  width="115.92"
+                  height="17.889"
+                  rx="8.94448"
+                  transform="matrix(0.73406 0.679084 0.679084 -0.73406 0 13.1318)"
+                  fill="currentColor"
+              />
+          </svg>
       </button>
-    </div>
+  </div>
+    
     <div class="contact modal">
         <div class="modal-wrapper">
             <h1 class="modal-title"> Say hello! </h1>

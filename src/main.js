@@ -1067,7 +1067,7 @@ const createMaterialForTextureSet = (textureSet) => {
 const roomMaterials = {
     First: createMaterialForTextureSet(1),
     Second: createMaterialForTextureSet(2),
-    Third: createMaterialForTextureSet(3),
+        Third: createMaterialForTextureSet(3),
     Fourth: createMaterialForTextureSet(4),
 };
 
@@ -1241,7 +1241,19 @@ function hasIntroAnimation(objectName) {
 
 loader.load("/models/Room_Portfolio.glb", (glb) => {
     glb.scene.traverse((child) => {
-        if (child.isMesh) {
+        console.log(
+            child.name,
+            "position:", child.position,
+            "scale:", child.scale
+        );        if (child.isMesh) {
+            if (
+                child.name.includes("Frame_1_Second") ||
+                child.name.includes("Frame_2_Second") ||
+                child.name.includes("Frame_3_Second")
+            ) {
+                console.log("FRAME FOUND:", child.name);
+                child.visible = false;
+            }
             if (child.name.includes("Fish_Fourth")) {
                 fish = child;
                 child.position.x += 0.04;
@@ -1310,27 +1322,42 @@ loader.load("/models/Room_Portfolio.glb", (glb) => {
             } else if (child.name.includes("Name_Letter_1")) {
                 letter1 = child;
                 child.scale.set(0, 0, 0);
+                letter1.visible=false;
             } else if (child.name.includes("Name_Letter_2")) {
                 letter2 = child;
                 child.scale.set(0, 0, 0);
+                letter2.visible=false;
+
             } else if (child.name.includes("Name_Letter_3")) {
                 letter3 = child;
                 child.scale.set(0, 0, 0);
+                letter3.visible=false;
+
             } else if (child.name.includes("Name_Letter_4")) {
                 letter4 = child;
+                letter4.visible=false;
+
                 child.scale.set(0, 0, 0);
             } else if (child.name.includes("Name_Letter_5")) {
                 letter5 = child;
                 child.scale.set(0, 0, 0);
+                letter5.visible=false;
+
             } else if (child.name.includes("Name_Letter_6")) {
                 letter6 = child;
                 child.scale.set(0, 0, 0);
+                letter6.visible=false;
+
             } else if (child.name.includes("Name_Letter_7")) {
                 letter7 = child;
                 child.scale.set(0, 0, 0);
+                letter7.visible=false;
+
             } else if (child.name.includes("Name_Letter_8")) {
                 letter8 = child;
                 child.scale.set(0, 0, 0);
+                letter8.visible=false;
+
             } else if (child.name.includes("Flower_1")) {
                 flower1 = child;
                 child.scale.set(0, 0, 0);
@@ -2058,9 +2085,8 @@ const campusHubSlider = document.querySelector(
     const dots = campusHubSlider.querySelectorAll(".slider-dot");
   
     const images = [
-      "/images/campushub.png",
-      "/images/campushub-2.png",
-      "/images/campushub-3.png",
+        "/images/campushub.png",
+        "/images/admindashboard.png",
     ];
   
     let currentIndex = 0;
