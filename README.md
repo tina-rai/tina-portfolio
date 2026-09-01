@@ -1,40 +1,121 @@
-# 💜 수아's Award-Winning Room Folio 💜
+# Tina's Room Portfolio 
 
-**[Live site](http://sooahs-room-folio.com/)**
+**[Live Site](YOUR_LIVE_SITE_URL)**
 
-This repo contains code of 수아's Room Folio. If you're interested, learn how to create a porfolio like this [here](https://youtu.be/AB6sulUMRGE)!! It's beginner friendly!
+This repository contains the source code for my personal 3D room portfolio.
 
-![Page screenshot](public/media/og-image.webp?raw=true "Page screenshot")
+The portfolio is an interactive virtual room built with **JavaScript, Three.js, SCSS, and Vite**, with interactive objects, animations, project showcases, background music, and different room themes.
 
-# Instructions
+![Portfolio Screenshot](public/media/og-image.webp?raw=true "Portfolio Screenshot")
 
+## ✨ Features
+
+* Interactive 3D room
+* Animated and interactive objects
+* About Me section
+* Project showcase
+* Contact section
+* Interactive piano
+* Background music
+* Day/night room themes
+* Custom fonts and styling
+* Responsive layout
+* Project image slider
+* Interactive navigation using Three.js raycasting
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/tina-rai/tina-portfolio.git
+cd tina-portfolio
 ```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-# Updates & Known Issues!!!
+Then open the local URL shown in the terminal.
 
-- Yes you shouldn't put everything into a single main.js file, I just did it because it was a beginner course and didn't want to move a bunch of stuff around everywhere which might've been more confusing for those just starting out. I definitely recommend a better structure than the one I did. Also the SCSS is a mess do NOT look at it XD. I strongly encourage you to style it in your own unique way!
-- Don't use .ogg files because they might glitch out on iPhones. If you want to use .ogg files, make sure to also have a fallback .mp3 file that you load instead if they're on an iPhone. If you use .ogg you might not hear anything on iPhones/Safari browser.
-- There is an issue in the video's code where, at certain angles, when you hover something it starts "vibrating" or "twitching," this is because the mesh that we're using to target with our raycaster is no longer being hovered after the animation displaces/rescales the object. This triggers the tween to be "killed" and revert to its old state. When it reverts it might be rehovered which triggers the animation to play again, but that animation again makes the object no longer hovered and it keeps going back and forth. If you wanted to fix this with minimal adjustments, you can generate static invisible hitboxes for all hovered items that are passed into the raycaster for testing rather than the object itself (or you can do a combination of both, some you use the object itself, others you use a hitbox). I decided to take a dual approach, some have hitboxes, others use the default object. For the objects with intro animations, you can either create their hitboxes after the intro animation is done playing or you can generate all the hitboxes before the intro is done playing. If you do it after, the user can't interact with them until the intro is done. If you do it before, they can interact with the objects before the intro is done. There are multiple ways to handle this, you can even make the hitboxes in Blender if you want. For me I made all the static ones interactable immediately, whereas those with intro animations have their hitboxes generated after the animations are done. One issue with hitboxes is at certain angles you can't select/hover objects behind another mesh's hitbox because we're only choosing the first thing the raycast intersects. You can fix this by deciding to play a hover animation for all objects the raycaster is intersecting or checking the rotation of the camera to "guess" which one the user is actually hovering, or make a highly custom hitbox for each specific mesh that needs one in Blender, or take the dual approach I took in which the raycaster uses generated hitboxes for some objects and the default objects themselves for others. Alternatively, if you don't want a hovered state, you can simply remove the kill flag check and let it play out its animation fully.
+## 🛠️ Built With
 
-# Inspo & Credits!!!
+* **JavaScript**
+* **Three.js**
+* **SCSS**
+* **Vite**
+* **Blender**
+* **HTML**
 
-- [Bruno Simon's Room](https://my-room-in-3d.vercel.app/)
-- [Rachel Wei's Room](https://rachelqrwei.ca/)
-- [Nicky Blender](https://www.instagram.com/nicky.blender/?hl=en)
-- [Denis Wipart's Materials](https://wipart.artstation.com/store). Don't worry I have commercial license hahaha.
-- [Music](https://youtu.be/eq3C1Uwz6YU)
-- [Click SFX](https://uppbeat.io/sfx/category/digital-and-ui/ui)
-- [Piano SFX](https://pixabay.com/sound-effects/all-88-keys-on-a-piano-playing-fast-free-high-quality-sound-effects-71279/)
-- [Cat Wallpaper](https://wallpapersok.com/wallpapers/kawaii-hd-smiling-cats-vmhjik4wp6ipc6bd.html)
-- [Peach Panda Wallpaper](https://4kwallpapers.com/cute/peach-cat-kawaii-10081.html)
-- [Anya Forger | Spy x Family Wallpaper](https://www.uhdpaper.com/2022/03/anya-forger-spy-x-family-4k-5061g.html?m=0)
-- [SVGs](https://www.svgrepo.com/)
-- [Fonts](https://www.fontspace.com/niskala-huruf)
+## 🎨 Customization
 
-# Won some awards!! 🎉
+This portfolio started from an existing 3D room portfolio project and has been customized extensively for my own portfolio.
 
-- [Awwwards](https://www.awwwards.com/sites/suas-room-folio)
-- [CSSDA](https://www.cssdesignawards.com/sites/sooahs-room-folio/47040/)
+Changes and customizations include:
+
+* Personal portfolio content
+* Custom About Me section
+* Personal project showcase
+* CampusHub project integration
+* Custom profile image
+* Custom favicon
+* Custom typography
+* Background music
+* Updated project screenshots
+* UI and layout adjustments
+* Modified room elements and interactions
+* Personal links and contact information
+
+## ⚠️ Notes
+
+The project currently keeps a significant amount of the Three.js logic inside `main.js`. This isn't necessarily the structure I would choose for a larger application, but it keeps the project relatively straightforward to work with.
+
+The SCSS structure could also be improved and separated further as the project grows.
+
+## 🎵 Audio
+
+The portfolio uses background music and sound effects.
+
+For browser compatibility, audio formats should be chosen carefully, particularly for Safari and iOS devices.
+
+## 🙌 Inspiration & Credits
+
+This project was inspired by several creative 3D portfolio projects and resources:
+
+* [Bruno Simon's Room](https://my-room-in-3d.vercel.app/)
+* [Rachel Wei's Room](https://rachelqrwei.ca/)
+* [Nicky Blender](https://www.instagram.com/nicky.blender/)
+* [Denis Wipart's Materials](https://wipart.artstation.com/store)
+* [SVG Repo](https://www.svgrepo.com/)
+
+Additional assets, wallpapers, fonts, music, and sound effects used in the original project are credited to their respective creators.
+
+## 📌 Projects
+
+### CampusHub
+
+A full-stack campus event management platform featuring student and admin accounts, event management, registrations, role-based access control, and PostgreSQL persistence.
+
+**Tech:** JavaScript, Node.js, Express.js, PostgreSQL, REST API, Authentication
+
+[Live Demo](https://campus-hub-1-37y8.onrender.com/) · [GitHub](https://github.com/tina-rai/campus-hub)
+
+### Finance Dashboard
+
+A full-stack personal finance dashboard rebuilt from a vanilla JavaScript application into a modern application using React, Express.js, PostgreSQL, REST APIs, and session-based authentication.
+
+**Tech:** React, JavaScript, Node.js, Express.js, PostgreSQL, REST API, Authentication
+
+[GitHub](https://github.com/tina-rai/finance-dashboard)
+
+## 📄 License
+
+This project contains original work as well as third-party assets and resources. Please refer to the respective creators' licenses and usage terms for third-party materials.
