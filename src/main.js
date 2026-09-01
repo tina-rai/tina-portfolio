@@ -84,8 +84,8 @@ const pianoSounds = {};
 
 Object.values(pianoKeyMap).forEach((soundKey) => {
     pianoSounds[soundKey] = new Howl({
-        src: [`/audio/sfx/piano/${soundKey}.ogg`],
-        preload: true,
+        src: [`${BASE_URL}audio/sfx/piano/${soundKey}.ogg`],
+                preload: true,
         volume: 0.5,
     });
 });
@@ -318,7 +318,31 @@ manager.onLoad = function() {
     loadingScreenButton.style.transition =
         "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
     let isDisabled = false;
+// Themeing stuff
+const toggleFavicons = () => {
+    const isDark = document.body.classList.contains("dark-theme");
+    const theme = isDark ? "light" : "dark";
 
+    document.querySelector(
+        'link[sizes="96x96"]'
+    ).href = `${BASE_URL}media/${theme}-favicon/favicon-96x96.png`;
+
+    document.querySelector(
+        'link[type="image/svg+xml"]'
+    ).href = `${BASE_URL}media/${theme}-favicon/favicon.svg`;
+
+    document.querySelector(
+        'link[rel="shortcut icon"]'
+    ).href = `${BASE_URL}media/${theme}-favicon/favicon.ico`;
+
+    document.querySelector(
+        'link[rel="apple-touch-icon"]'
+    ).href = `${BASE_URL}media/${theme}-favicon/apple-touch-icon.png`;
+
+    document.querySelector(
+        'link[rel="manifest"]'
+    ).href = `${BASE_URL}media/${theme}-favicon/site.webmanifest`;
+};
     //noSoundButton.textContent = "Enter without Sound :(";
 
     function handleEnter(withSound = true) {
@@ -1164,6 +1188,8 @@ const useOriginalMeshObjects = ["Bulb", "Cactus", "Kirby"];
 
 const objectsNeedingHitboxes = [];
 const raycasterObjects = [];
+const hitboxToObjectMap = new Map();
+
 
 const objectsWithIntroAnimations = [
     "Hanging_Plank_1",
@@ -1474,7 +1500,7 @@ loader.load(`${BASE_URL}models/Room_Portfolio.glb`, (glb) => {
                 }
             }
         }
-        });
+        
     });
 
 
@@ -1487,7 +1513,7 @@ loader.load(`${BASE_URL}models/Room_Portfolio.glb`, (glb) => {
     }
 
     scene.add(glb.scene);
-
+});
 
 /**  -------------------------- Raycaster setup -------------------------- */
 
@@ -1502,7 +1528,6 @@ const socialLinks = {
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
-const hitboxToObjectMap = new Map();
 
 function shouldUseOriginalMesh(objectName) {
     return useOriginalMeshObjects.some((meshName) =>
@@ -1876,27 +1901,7 @@ muteToggleButton.addEventListener(
     }, { passive: false }
 );
 
-// Themeing stuff
-const toggleFavicons = () => {
-    const isDark = document.body.classList.contains("dark-theme");
-    const theme = isDark ? "light" : "dark";
 
-    document.querySelector(
-        'link[sizes="96x96"]'
-    ).href = `media/${theme}-favicon/favicon-96x96.png`;
-    document.querySelector(
-        'link[type="image/svg+xml"]'
-    ).href = `/media/${theme}-favicon/favicon.svg`;
-    document.querySelector(
-        'link[rel="shortcut icon"]'
-    ).href = `media/${theme}-favicon/favicon.ico`;
-    document.querySelector(
-        'link[rel="apple-touch-icon"]'
-    ).href = `media/${theme}-favicon/apple-touch-icon.png`;
-    document.querySelector(
-        'link[rel="manifest"]'
-    ).href = `media/${theme}-favicon/site.webmanifest`;
-};
 
 let isNightMode = false;
 
