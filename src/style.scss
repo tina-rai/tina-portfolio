@@ -228,7 +228,11 @@ ul {
 .contact {
     max-width: 500px;
 }
-
+.contact {
+    .modal-paragraph-header {
+        font-family: "Poppins", sans-serif;
+    }
+}
 .modal-wrapper {
     @include vars.centered;
     width: 100%;
@@ -979,7 +983,35 @@ ul {
     font-size: 16px;
     line-height: 1.4;
   }
-  
+  .osac-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+  .osac-facebook {
+    background: #6e5e9c;
+    color: #ead7ef;
+
+    box-shadow: 0 4px 0 #4f4178;
+}
+
+.osac-facebook:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #4f4178;
+}
+
+.osac-instagram {
+    background: transparent;
+    color: #6e5e9c;
+
+    border: 2px solid #6e5e9c;
+}
+
+.osac-instagram:hover {
+    transform: translateY(-2px);
+    background: #ead7ef;
+    box-shadow: 0 4px 0 rgba(110, 94, 156, 0.25);
+}
   
   /* ---------------- RESPONSIVE ---------------- */
   
