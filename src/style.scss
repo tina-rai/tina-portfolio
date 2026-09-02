@@ -989,11 +989,11 @@ ul {
 }
 
 .osac-links {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+    align-items: center;
 }
-  
   /* ---------------- RESPONSIVE ---------------- */
   
   @media (max-width: 1100px) {

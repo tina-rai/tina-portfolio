@@ -1234,20 +1234,76 @@ function hasIntroAnimation(objectName) {
         objectName.includes(animatedName)
     );
 }
+// -------------------------- Monitor Video --------------------------
+
+let monitorVideo = null;
+let monitorVideoTexture = null;
+
+function createMonitorVideo() {
+  monitorVideo = document.createElement("video");
+
+  monitorVideo.src = `${BASE_URL}video/portfolio.mp4`;
+  monitorVideo.loop = true;
+  monitorVideo.muted = true;
+  monitorVideo.playsInline = true;
+  monitorVideo.autoplay = false;
+  monitorVideo.preload = "auto";
+
+  monitorVideoTexture = new THREE.VideoTexture(monitorVideo);
+
+  monitorVideoTexture.colorSpace = THREE.SRGBColorSpace;
+  monitorVideoTexture.minFilter = THREE.LinearFilter;
+  monitorVideoTexture.magFilter = THREE.LinearFilter;
+  monitorVideoTexture.generateMipmaps = false;
+
+  // Start only when the browser allows it.
+  const playPromise = monitorVideo.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      console.log("Monitor video autoplay was blocked.");
+    });
+  }
+}
+function applyVideoToMonitor(root) {
+    if (!monitorVideoTexture) {
+        console.warn("Monitor video texture has not been created yet.");
+        return;
+    }
+
+    let foundScreen = false;
+
+    root.traverse((child) => {
+        if (!child.isMesh) return;
+
+        if (!child.name.includes("Screen")) return;
+
+        if (child.material) {
+            child.material = child.material.clone();
+
+            child.material.map = monitorVideoTexture;
+            child.material.color.set(0xffffff);
+            child.material.transparent = false;
+            child.material.needsUpdate = true;
+
+            foundScreen = true;
+        }
+    });
+
+    if (!foundScreen) {
+        console.warn("No Screen mesh was found for the monitor video.");
+    }
+}
+  createMonitorVideo();
 
 loader.load(`${BASE_URL}models/Room_Portfolio.glb`, (glb) => {
         glb.scene.traverse((child) => {
-        console.log(
-            child.name,
-            "position:", child.position,
-            "scale:", child.scale
-        );        if (child.isMesh) {
+              if (child.isMesh) {
             if (
                 child.name.includes("Frame_1_Second") ||
                 child.name.includes("Frame_2_Second") ||
                 child.name.includes("Frame_3_Second")
             ) {
-                console.log("FRAME FOUND:", child.name);
                 child.visible = false;
             }
             if (child.name.includes("Fish_Fourth")) {
@@ -1487,7 +1543,8 @@ loader.load(`${BASE_URL}models/Room_Portfolio.glb`, (glb) => {
             coffeePosition.z
         );
     }
-
+// Apply monitor video only after the GLB exists.
+applyVideoToMonitor(glb.scene);
     scene.add(glb.scene);
 });
 
