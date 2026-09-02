@@ -319,30 +319,7 @@ manager.onLoad = function() {
         "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)";
     let isDisabled = false;
 // Themeing stuff
-const toggleFavicons = () => {
-    const isDark = document.body.classList.contains("dark-theme");
-    const theme = isDark ? "light" : "dark";
 
-    document.querySelector(
-        'link[sizes="96x96"]'
-    ).href = `${BASE_URL}media/${theme}-favicon/favicon-96x96.png`;
-
-    document.querySelector(
-        'link[type="image/svg+xml"]'
-    ).href = `${BASE_URL}media/${theme}-favicon/favicon.svg`;
-
-    document.querySelector(
-        'link[rel="shortcut icon"]'
-    ).href = `${BASE_URL}media/${theme}-favicon/favicon.ico`;
-
-    document.querySelector(
-        'link[rel="apple-touch-icon"]'
-    ).href = `${BASE_URL}media/${theme}-favicon/apple-touch-icon.png`;
-
-    document.querySelector(
-        'link[rel="manifest"]'
-    ).href = `${BASE_URL}media/${theme}-favicon/site.webmanifest`;
-};
     //noSoundButton.textContent = "Enter without Sound :(";
 
     function handleEnter(withSound = true) {
@@ -358,7 +335,6 @@ const toggleFavicons = () => {
         loadingScreen.style.background = "#ead7ef";
         isDisabled = true;
 
-        toggleFavicons();
 
         if (!withSound) {
             isMuted = true;
@@ -1907,7 +1883,6 @@ let isNightMode = false;
 
 const handleThemeToggle = (e) => {
     e.preventDefault();
-    toggleFavicons();
 
     const isDark = document.body.classList.contains("dark-theme");
     document.body.classList.remove(isDark ? "dark-theme" : "light-theme");
