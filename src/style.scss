@@ -164,14 +164,17 @@ ul {
 
 .about {
     .modal-wrapper {
-        width: min(850px, 80vw);
-        min-height: 620px;
+        width: min(780px, 88vw);
+        min-height: auto;
+        max-height: 88vh;
     }
 
     .modal-content {
         width: 100%;
         height: auto;
-        overflow: visible;
+        max-height: 88vh;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .modal-content-wrapper {
@@ -183,15 +186,16 @@ ul {
     .about-card {
         display: flex;
         align-items: center;
-        gap: 2.5rem;
+        gap: 2rem;
         width: 100%;
-        padding: 1rem 2rem 2rem;
+        padding: 1.5rem 2rem 2rem;
+        box-sizing: border-box;
     }
 
     .about-image {
-        flex: 0 0 210px;
-        width: 210px;
-        height: 300px;
+        flex: 0 0 180px;
+        width: 180px;
+        height: 260px;
         overflow: hidden;
         border-radius: 1rem;
 
@@ -206,22 +210,28 @@ ul {
     .about-text {
         flex: 1;
         min-width: 0;
+        overflow-wrap: break-word;
     }
 
     .modal-paragraph-header {
-        margin: 0 0 0.75rem;
+        margin: 0 0 0.65rem;
+        line-height: 1.25;
     }
 
     .modal-paragraph-text {
-        margin: 0 0 1.5rem;
-        line-height: 1.7;
+        margin: 0 0 1.25rem;
+        line-height: 1.6;
+        overflow-wrap: break-word;
     }
 
     ul {
-        padding-left: 1.5rem;
+        padding-left: 1.25rem;
+        margin: 0;
 
         li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.65rem;
+            line-height: 1.45;
+            overflow-wrap: break-word;
         }
     }
 }
@@ -996,36 +1006,124 @@ ul {
 }
   /* ---------------- RESPONSIVE ---------------- */
   
-  @media (max-width: 1100px) {
-    .work-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  
-  @media (max-width: 700px) {
-    .work-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .work .modal-content {
-      max-height: 70vh;
-    }
-  }
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
     .about {
         .modal-wrapper {
             width: 90vw;
-            min-height: auto;
+            max-height: 88vh;
+        }
+
+        .about-card {
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .about-image {
+            flex: 0 0 160px;
+            width: 160px;
+            height: 230px;
+        }
+    }
+}
+
+
+@media (max-width: 700px) {
+    .about {
+        .modal-wrapper {
+            width: 92vw;
+            max-height: 88vh;
+        }
+
+        .modal-content {
+            max-height: 88vh;
         }
 
         .about-card {
             flex-direction: column;
-            gap: 1.5rem;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 1.5rem 1.25rem 2rem;
+            text-align: center;
         }
 
         .about-image {
-            width: 170px;
-            height: 220px;
+            flex: none;
+            width: 150px;
+            height: 200px;
         }
+
+        .about-text {
+            width: 100%;
+        }
+
+        .modal-paragraph-header {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+        }
+
+        .modal-paragraph-text {
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
+            line-height: 1.55;
+        }
+
+        ul {
+            text-align: left;
+            padding-left: 1.25rem;
+
+            li {
+                margin-bottom: 0.6rem;
+                line-height: 1.45;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 420px) {
+    .about {
+        .modal-wrapper {
+            width: 94vw;
+            max-height: 86vh;
+        }
+
+        .about-card {
+            padding: 1.25rem 1rem 1.5rem;
+            gap: 1rem;
+        }
+
+        .about-image {
+            width: 125px;
+            height: 170px;
+        }
+
+        .modal-paragraph-header {
+            font-size: 1rem;
+        }
+
+        .modal-paragraph-text {
+            font-size: 0.85rem;
+        }
+
+        ul {
+            padding-left: 1.1rem;
+
+            li {
+                font-size: 0.85rem;
+            }
+        }
+    }
+}
+@media (max-width: 1100px) {
+    .work-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .work .modal-content {
+        max-height: 70vh;
     }
 }
