@@ -1250,6 +1250,7 @@ function createMonitorVideo() {
   monitorVideo.preload = "auto";
 
   monitorVideoTexture = new THREE.VideoTexture(monitorVideo);
+  monitorVideoTexture.flipY = false;
 
   monitorVideoTexture.colorSpace = THREE.SRGBColorSpace;
   monitorVideoTexture.minFilter = THREE.LinearFilter;
